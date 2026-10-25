@@ -1,0 +1,39 @@
+[worldserver]
+
+###################################################################################################
+#    Azeroth Vocations config
+###################################################################################################
+#
+#    AzerothVocations.Enable
+#        Description: Enables/disables the Class Master gossip flow (mod-azeroth-vocations).
+#                     When disabled, allowlisted trainers behave exactly like ordinary trainers.
+#        Default:     0
+#
+#    AzerothVocations.Core.Enable
+#        Description: Enables/disables the underlying Core Vocation Service (class archive/
+#                     restore, level-1 class creation, Class Armory). This gates the low-level
+#                     C++ service that mod-azeroth-vocations calls into -- leave this on if
+#                     AzerothVocations.Enable is on. Read by CoreVocationService::IsServiceEnabled().
+#        Default:     0
+#
+#    AzerothVocations.Core.ClassEnabled.<N>
+#        Description: Per-class override for whether the Core Vocation Service will switch a
+#                     player into class N (1=Warrior .. 11=Druid). Defaults to enabled for every
+#                     class except Death Knight (6). Read by CoreVocationService::CanSwitchClass().
+#                     Example: AzerothVocations.Core.ClassEnabled.6 = 1
+#
+#    AzerothVocations.NewClassBaseCost
+#        Description: Copper cost to become a class you've never played before on that character
+#                     (a pure gold sink -- no level gate). Your original class is always free;
+#                     becoming your 1st new class beyond that costs this amount, and it doubles for
+#                     each additional new class you pick up after that (10g, 20g, 40g, 80g, ...).
+#                     Switching back to a class you've already unlocked once is free (or costs
+#                     whatever av_classmaster_class_rule.switchCost says for that class, if set) --
+#                     this cost only ever applies to a class new to that character.
+#        Default:     100000 (10 gold)
+#
+###################################################################################################
+
+AzerothVocations.Enable = 0
+AzerothVocations.Core.Enable = 0
+AzerothVocations.NewClassBaseCost = 100000
